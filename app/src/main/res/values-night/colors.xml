@@ -8,4 +8,6 @@
 
     <color name="onPrimary">#ffffff</color>
     <color name="onSecondary">#ffffff</color>
+
+    <color name="arc">#008577</color>
 </resources>

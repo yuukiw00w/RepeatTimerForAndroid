@@ -1,0 +1,12 @@
+<resources>
+    <declare-styleable name="ArcView">
+        <attr name="arcColor" format="color|reference"/>
+        <attr name="arcStrokeWidth" format="dimension|reference"/>
+        <attr name="arcIsAntiAlias" format="boolean|reference"/>
+        <attr name="arcStyle" format="integer|reference"/>
+        <attr name="arcStrokeCap" format="integer|reference"/>
+        <attr name="arcStartAngle" format="float|reference"/>
+        <attr name="arcSweepAngle" format="float|reference"/>
+        <attr name="arcUseCenter" format="boolean|reference"/>
+    </declare-styleable>
+</resources>

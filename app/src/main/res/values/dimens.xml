@@ -1,0 +1,3 @@
+<resources>
+    <dimen name="arc_stroke_width">10dp</dimen>
+</resources>
