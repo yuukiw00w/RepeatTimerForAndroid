@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_main"
+        android:icon="@drawable/ic_data_usage_black_24dp"
+        android:title="@string/home"/>
+    <item
+        android:id="@+id/navigation_change_alarm_time"
+        android:icon="@drawable/ic_access_alarm_black_24dp"
+        android:title="@string/alarm_time"/>
+    <item
+        android:id="@+id/navigation_change_vibration"
+        android:icon="@drawable/ic_access_alarm_black_24dp"
+        android:title="@string/vibration"/>
+</menu>

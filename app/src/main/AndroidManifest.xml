@@ -4,6 +4,8 @@
     package="jp.yn.light.repeattimer"
     tools:ignore="GoogleAppIndexingWarning">
 
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name=".MainActivity">
+        <activity android:name=".DisplayRemainingTimeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

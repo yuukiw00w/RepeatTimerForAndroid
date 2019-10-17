@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">RepeatTimer</string>
+    <string name="restart">リスタート</string>
+    <string name="stop">停止</string>
+    <string name="start">スタート</string>
+    <string name="alarm_time">アラーム時間</string>
+    <string name="vibration">バイブレーション</string>
+    <string name="day_hour">%d日%02d時間</string>
+    <string name="hour_minute_second">%d時間%02d分%02d秒</string>
+    <string name="minute_second">%d分%02d秒</string>
+    <string name="second_milli">%d秒%04d</string>
+    <string name="home">ホーム</string>
 </resources>

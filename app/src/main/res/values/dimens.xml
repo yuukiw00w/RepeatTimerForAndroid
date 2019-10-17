@@ -1,3 +1,5 @@
 <resources>
     <dimen name="arc_stroke_width">10dp</dimen>
+    <integer name="arc_start_angle">-90</integer>
+    <integer name="arc_sweep_angle">0</integer>
 </resources>

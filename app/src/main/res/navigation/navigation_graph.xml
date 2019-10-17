@@ -7,8 +7,8 @@
 
     <fragment
         android:id="@+id/mainFragment"
-        android:name="jp.yn.light.repeattimer.MainFragment"
-        tools:layout="@layout/fragment_main"
+        android:name="jp.yn.light.repeattimer.DisplayRemainingTimeFragment"
+        tools:layout="@layout/fragment_display_remaining_time"
         android:label="fragment_first">
     </fragment>
 </navigation>
