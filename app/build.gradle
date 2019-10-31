@@ -66,4 +66,11 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$libraryVersions.navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$libraryVersions.navigation"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$libraryVersions.coroutine"
+    implementation "com.squareup.moshi:moshi:$libraryVersions.moshi"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$libraryVersions.moshi"
+
+    implementation project(':extensions')
+    implementation project(':arcView')
+    implementation project(':preferences')
+    implementation project(':notification')
 }

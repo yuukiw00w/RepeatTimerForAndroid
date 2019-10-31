@@ -6,7 +6,7 @@
 
         <variable
             name="viewModel"
-            type="jp.yn.light.repeattimer.DisplayRemainingTimeFragmentViewModel" />
+            type="jp.yn.light.repeatTimer.DisplayRemainingTimeFragmentViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout xmlns:tools="http://schemas.android.com/tools"
@@ -27,14 +27,13 @@
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="0.6" />
 
-        <jp.yn.light.repeattimer.ArcView
+        <jp.yn.light.arcView.ArcView
             android:id="@+id/arc_view"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
+            android:layout_margin="8dp"
+            tools:visibility="invisible"
+            android:visibility="@{viewModel.visibilityRemainingTime}"
             app:arcColor="@color/primaryVariant"
             app:arcIsAntiAlias="true"
             app:arcStartAngle="@integer/arc_start_angle"
@@ -50,18 +49,112 @@
             app:layout_constraintTop_toTopOf="@id/arc_view_top_guideline"
             tools:arcSweepAngle="300" />
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/remaining_time"
+        <NumberPicker
+            android:id="@+id/hour_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintEnd_toEndOf="@id/hour_picker_layout"
+            app:layout_constraintStart_toStartOf="@id/hour_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/hour_picker_layout"
+            style="@style/TwoNumberSizeTextViewLayout"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintEnd_toStartOf="@id/hour_unit"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/hour_unit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="@string/hour_unit"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintEnd_toStartOf="@id/minute_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/minute_picker_layout"
+            style="@style/TwoNumberSizeTextViewLayout"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintStart_toStartOf="@id/arc_view"
+            app:layout_constraintEnd_toEndOf="@id/arc_view"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <NumberPicker
+            android:id="@+id/minute_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintEnd_toEndOf="@id/minute_picker_layout"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/minute_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/minute_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/minute_unit"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintStart_toEndOf="@id/minute_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/second_picker_layout"
+            style="@style/TwoNumberSizeTextViewLayout"
+            android:layout_marginStart="8dp"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintStart_toEndOf="@id/minute_unit"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <NumberPicker
+            android:id="@+id/second_picker"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintEnd_toEndOf="@id/second_picker_layout"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="@id/second_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <TextView
+            android:id="@+id/second_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/second_unit"
+            android:visibility="@{viewModel.visibilityNumberPickers}"
+            app:layout_constraintBottom_toBottomOf="@id/arc_view"
+            app:layout_constraintStart_toEndOf="@id/second_picker_layout"
+            app:layout_constraintTop_toTopOf="@id/arc_view" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/remaining_time"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:gravity="center"
+            android:padding="16dp"
             android:text="@{viewModel.remainingTime.parse(context)}"
-            app:autoSizeMinTextSize="10sp"
+            android:visibility="@{viewModel.visibilityRemainingTime}"
+            app:autoSizeMaxTextSize="50sp"
+            app:autoSizeMinTextSize="8sp"
             app:autoSizeTextType="uniform"
             app:layout_constraintBottom_toBottomOf="@id/arc_view"
             app:layout_constraintEnd_toEndOf="@id/arc_view"
             app:layout_constraintStart_toStartOf="@id/arc_view"
             app:layout_constraintTop_toTopOf="@id/arc_view"
-            tools:text="9999:99:99" />
+            tools:text="37時間42分"
+            tools:visibility="invisible" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/center_guideline"
@@ -70,30 +163,71 @@
             android:orientation="vertical"
             app:layout_constraintGuide_percent="0.5" />
 
-        <Button
+        <ImageButton
+            android:id="@+id/start_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/start"
+            android:enabled="@{viewModel.isEnabledStartButton}"
+            android:onClick="@{viewModel.onClickStart}"
+            android:src="@drawable/ic_play_arrow_black_24dp"
+            android:visibility="@{viewModel.visibilityStartButton}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arc_view_bottom_guideline" />
+
+        <ImageButton
+            android:id="@+id/pause_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/pause"
+            android:onClick="@{viewModel.onClickPause}"
+            android:src="@drawable/ic_pause_black_24dp"
+            android:visibility="@{viewModel.visibilityPauseButton}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arc_view_bottom_guideline" />
+
+
+        <ImageButton
+            android:id="@+id/previous_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/pause"
+            android:onClick="@{viewModel.onClickPrevious}"
+            android:src="@drawable/ic_skip_previous_black"
+            app:layout_constraintEnd_toEndOf="@id/center_guideline"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/arc_view_bottom_guideline" />
+
+
+        <ImageButton
+            android:id="@+id/next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:contentDescription="@string/pause"
+            android:onClick="@{viewModel.onClickNext}"
+            android:src="@drawable/ic_skip_next_black"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/center_guideline"
+            app:layout_constraintTop_toBottomOf="@id/arc_view_bottom_guideline" />
+
+        <ImageButton
             android:id="@+id/stop_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:contentDescription="@string/stop"
             android:enabled="@{viewModel.isEnabledStopButton}"
-            android:onClick="@{viewModel.onClickStartStop}"
-            android:text="@{viewModel.isStopped() ? @string/start : @string/stop}"
-            app:layout_constraintEnd_toEndOf="@id/center_guideline"
-            app:layout_constraintHorizontal_bias="0.75"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/arc_view" />
-
-        <Button
-            android:id="@+id/restart_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:enabled="@{viewModel.isEnabledRestartButton}"
-            android:onClick="@{viewModel.onClickRestart}"
-            android:text="@string/restart"
+            android:onClick="@{viewModel.onClickStop}"
+            android:src="@drawable/ic_stop_black_24dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.25"
-            app:layout_constraintStart_toStartOf="@id/center_guideline"
-            app:layout_constraintTop_toTopOf="@id/stop_button" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/next_button" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

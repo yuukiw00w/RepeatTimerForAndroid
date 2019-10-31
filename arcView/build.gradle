@@ -1,0 +1,28 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion androidVersions.compileSdk
+
+    defaultConfig {
+        minSdkVersion androidVersions.minSdk
+        targetSdkVersion androidVersions.targetSdk
+        versionCode appVersions.code
+        versionName appVersions.name
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$libraryVersions.kotlin"
+
+    implementation "androidx.appcompat:appcompat:$libraryVersions.appcompat"
+}

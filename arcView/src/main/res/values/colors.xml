@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#90caf9</color>
+    <color name="primaryVariant">#5d99c6</color>
+    <color name="primaryDark">#5d99c6</color>
+    <color name="secondary">#c5cae9</color>
+    <color name="secondaryVariant">#9499b7</color>
+
+    <color name="onPrimary">#000000</color>
+    <color name="onSecondary">#000000</color>
+
+    <color name="arc">#008577</color>
+</resources>

@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="NoCheckSpelling" pattern="file[RepeatTimer]:commitSettings//*||file[RepeatTimer]:dictionary//*" />
+</component>

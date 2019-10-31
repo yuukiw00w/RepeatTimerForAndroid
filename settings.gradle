@@ -1,2 +1,2 @@
-include ':app'
+include ':app', ':extensions', ':arcView', ':preferences', ':notification'
 rootProject.name='RepeatTimer'

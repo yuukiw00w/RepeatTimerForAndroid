@@ -9,6 +9,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/arcView" />
+            <option value="$PROJECT_DIR$/extensions" />
+            <option value="$PROJECT_DIR$/notification" />
+            <option value="$PROJECT_DIR$/preferences" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
